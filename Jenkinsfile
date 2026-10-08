@@ -14,7 +14,7 @@ pipeline {
         stage('Deploy Portfolio') {
             steps {
 
-                sshagent(['portfolio-server-key']) {
+                sshagent(['node-pipeline-key']) {
 
                     sh '''
                         ssh -o StrictHostKeyChecking=no \
@@ -37,7 +37,7 @@ pipeline {
         stage('Verify Deployment') {
             steps {
 
-                sshagent(['portfolio-server-key']) {
+                sshagent(['node-pipeline-key']) {
 
                     sh '''
                         ssh -o StrictHostKeyChecking=no \
